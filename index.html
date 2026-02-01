@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pachranga Shop | Flame Grilled Taste</title>
-    <link href="https://fonts.googleapis.com/css2?family=Flame&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Pachranga Shop | Premium Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         :root {
@@ -38,13 +38,13 @@
             text-transform: uppercase;
             letter-spacing: -1px;
         }
-        header p { margin-top: 5px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+        header p { margin-top: 5px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
 
         .container { padding: 15px; }
 
         .category { 
             background: var(--white); 
-            padding: 20px; 
+            padding: 18px; 
             border-radius: 12px; 
             cursor: pointer;
             margin-top: 15px; 
@@ -52,17 +52,16 @@
             justify-content: space-between; 
             align-items: center;
             font-weight: 900; 
-            box-shadow: 0 6px 0px rgba(80, 35, 20, 0.1);
-            border: 2px solid var(--bk-brown);
+            box-shadow: 0 5px 0px rgba(80, 35, 20, 0.1);
+            border: 2.5px solid var(--bk-brown);
             text-transform: uppercase;
             color: var(--bk-red);
-            font-size: 1.2rem;
         }
-        .category:after { content: '+'; font-size: 1.5rem; transition: 0.3s; }
-        .category.active:after { transform: rotate(45deg); }
+        .category:after { content: '▼'; font-size: 1rem; transition: 0.3s; color: var(--bk-brown); }
+        .category.active:after { transform: rotate(180deg); }
 
         .items-container { max-height: 0; overflow: hidden; transition: all 0.4s ease; opacity: 0; }
-        .items-container.open { max-height: 1000px; opacity: 1; padding: 5px 0; }
+        .items-container.open { max-height: 1200px; opacity: 1; padding: 5px 0; }
 
         .menu-item { 
             background: var(--white); 
@@ -72,25 +71,15 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center;
-            border: 2px solid #eee;
+            border: 2px solid #ddd;
         }
         .item-info h3 { margin: 0; font-size: 1.1rem; color: var(--bk-brown); font-weight: 800; text-transform: uppercase; }
         .item-info p { margin: 4px 0; font-size: 0.85rem; color: #666; font-weight: 400; }
-        
-        .view-btn { 
-            background: var(--bk-blue); 
-            color: white; 
-            padding: 8px 15px; 
-            border-radius: 20px; 
-            font-size: 0.7rem; 
-            font-weight: 900;
-            text-transform: uppercase;
-        }
 
         .footer-bar { 
             position: fixed; bottom: 0; left: 0; width: 100%; 
             background: var(--bk-brown); 
-            padding: 20px; 
+            padding: 18px; 
             text-align: center; 
             box-sizing: border-box; 
             z-index: 100;
@@ -99,18 +88,17 @@
         .pay-btn-main { 
             background: var(--bk-yellow); 
             color: var(--bk-brown); 
-            padding: 15px 0; 
+            padding: 14px 0; 
             border-radius: 8px; 
             border: none; 
             font-weight: 900; 
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             width: 90%; 
             cursor: pointer;
             text-transform: uppercase;
             box-shadow: 0 4px 0px #cc9316;
         }
 
-        /* Modal styling */
         #payModal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(80, 35, 20, 0.9); z-index: 2000; justify-content: center; align-items: center;
@@ -121,7 +109,7 @@
         }
         #qrcode { margin: 20px auto; display: flex; justify-content: center; min-height: 160px; align-items: center; background: white; border-radius: 10px; padding: 10px; }
         
-        input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 2px solid var(--bk-brown); font-family: inherit; font-weight: 700; outline: none; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 2px solid var(--bk-brown); font-family: inherit; font-weight: 700; outline: none; box-sizing: border-box; }
 
         .upi-btn-centered { 
             background: var(--bk-red); color: white; padding: 14px 0; 
@@ -135,29 +123,31 @@
 
 <header>
     <h1>PACHRANGA</h1>
-    <p>🔥 Your Way, Right Away 🔥</p>
+    <p>Premium Street Food Experience</p>
 </header>
 
 <div class="container">
-    <div class="category" onclick="toggleItems(this)">🥟 Momos Royale</div>
+    <div class="category" onclick="toggleItems(this)">🥟 Momos Special</div>
     <div class="items-container">
-        <div class="menu-item"><div class="item-info"><h3>Steam Momos</h3><p>Original Veggie Mix</p></div><div class="view-btn">Full / Half</div></div>
-        <div class="menu-item"><div class="item-info"><h3>Fry Momos</h3><p>Golden Crispy Crunch</p></div><div class="view-btn">Full / Half</div></div>
-        <div class="menu-item"><div class="item-info"><h3>Kurkure Momos</h3><p>The Ultimate Extra-Crunch</p></div><div class="view-btn">Chef's Choice</div></div>
+        <div class="menu-item"><div class="item-info"><h3>Steam Momos</h3><p>Classic veg filling</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Fry Momos</h3><p>Crispy golden fry</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Kurkure Momos</h3><p>Extra crunchy coating</p></div></div>
     </div>
 
-    <div class="category" onclick="toggleItems(this)">🥢 Street Sides</div>
+    <div class="category" onclick="toggleItems(this)">🥢 Chinese Corner</div>
     <div class="items-container">
-        <div class="menu-item"><div class="item-info"><h3>Veg Manchurian</h3><p>Sizzling Spicy Gravy</p></div><div class="view-btn">Platter</div></div>
-        <div class="menu-item"><div class="item-info"><h3>Singapuri Chowmein</h3><p>Wok-fired with fresh veggies</p></div><div class="view-btn">Classic</div></div>
-        <div class="menu-item"><div class="item-info"><h3>Chilli Potato</h3><p>The Original Sweet & Spicy</p></div><div class="view-btn">Hot Pick</div></div>
+        <div class="menu-item"><div class="item-info"><h3>Manchurian</h3><p>Veg balls in spicy sauce</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Veg Chowmein</h3><p>Classic Wok-tossed noodles</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Singapuri Chowmein</h3><p>Spicy & aromatic</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Hakka Noodles</h3><p>Mild and savory</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Chilli Potato</h3><p>Sweet & Spicy glazed fries</p></div></div>
     </div>
 
-    <div class="category" onclick="toggleItems(this)">🍔 Signature Bites</div>
+    <div class="category" onclick="toggleItems(this)">🍔 Quick Bites</div>
     <div class="items-container">
-        <div class="menu-item"><div class="item-info"><h3>Classic Burger</h3><p>Freshly Toasted Aloo Patty</p></div><div class="view-btn">Add Cheese</div></div>
-        <div class="menu-item"><div class="item-info"><h3>French Fries</h3><div class="view-btn">Salted</div></div></div>
-        <div class="menu-item"><div class="item-info"><h3>Golgappe</h3><p>Pani Puri Explosion</p></div><div class="view-btn">Fresh</div></div>
+        <div class="menu-item"><div class="item-info"><h3>Classic Burger</h3><p>Crispy Aloo Patty</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Finger Chips</h3><p>Salted French Fries</p></div></div>
+        <div class="menu-item"><div class="item-info"><h3>Golgappe</h3><p>Crispy Pani Puri (4 Pieces)</p></div></div>
     </div>
 </div>
 
@@ -168,15 +158,12 @@
 <div id="payModal">
     <div class="modal-content">
         <span class="close-x" onclick="closePay()">&times;</span>
-        <h3 style="margin-bottom: 15px; color: var(--bk-red); text-transform: uppercase;">Checkout</h3>
-        
-        <input type="number" id="payAmount" placeholder="Enter Amount (₹)" oninput="generateQR()">
+        <h3 style="margin-bottom: 15px; color: var(--bk-red); text-transform: uppercase;">Payment</h3>
+        <input type="number" id="payAmount" placeholder="Enter Total Bill (₹)" oninput="generateQR()">
         <input type="text" id="orderNote" placeholder="Table No / Name" oninput="generateQR()">
-        
-        <div id="qrcode">Ready to Serve!</div>
-        
+        <div id="qrcode">QR will appear here</div>
         <div class="upi-link-wrapper">
-            <a id="upi-link" href="#" class="upi-btn-centered">Proceed to Payment</a>
+            <a id="upi-link" href="#" class="upi-btn-centered">Open UPI App</a>
         </div>
     </div>
 </div>
@@ -198,7 +185,6 @@
         const amt = document.getElementById('payAmount').value;
         const note = document.getElementById('orderNote').value || "Pachranga Order";
         const qrDiv = document.getElementById('qrcode');
-        
         if(amt > 0) {
             const upiStr = `upi://pay?pa=${vpa}&pn=${encodeURIComponent(shopName)}&am=${amt}&tn=${encodeURIComponent(note)}&cu=INR`;
             qrDiv.innerHTML = "";
